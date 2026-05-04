@@ -7,10 +7,10 @@ echo "Script name (\$0): $0"
 echo "Number of arguments (\$#): $#"
 
 # $* - all arguments as a single string
-echo "All arguments as one string with \$*: $*"
+echo "All arguments as one string with (\$*): $*"
 
 # $@ - all arguments as separate values
-echo "All arguments as separate values with \$@:"
+echo "All arguments as separate values with (\$@):"
 for arg in "$@"; do
     echo "  - $arg"
 done
@@ -24,9 +24,9 @@ echo "Third arg (\$3): $3"
 echo ""
 echo "Running a command to demonstrate (\$?):"
 true
-echo "Exit status of the true command: $?"
+echo "Exit status of the true command (\$?): $?"
 false
-echo "Exit status of the false command: $?"
+echo "Exit status of the false command (\$?): $?"
 
 # $! - PID of the last process run in background
 sleep 1 &
