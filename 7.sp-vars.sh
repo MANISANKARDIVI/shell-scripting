@@ -10,10 +10,7 @@ echo "Number of arguments (\$#): $#"
 echo "All arguments as one string with (\$*): $*"
 
 # $@ - all arguments as separate values
-echo "All arguments as separate values with (\$@):"
-for arg in "$@"; do
-    echo "  - $arg"
-done
+echo "All arguments as separate values with (\$@): $@"
 
 # $1-$9 - first nine positional arguments
 echo "First arg (\$1): $1"
@@ -21,24 +18,13 @@ echo "Second arg (\$2): $2"
 echo "Third arg (\$3): $3"
 
 # Use a command to demonstrate $? (exit status of last command)
-echo ""
-echo "Running a command to demonstrate (\$?):"
-true
-echo "Exit status of the true command (\$?): $?"
-false
-echo "Exit status of the false command (\$?): $?"
+echo "Running a command that succeeds (\$?): $?"
 
 # $! - PID of the last process run in background
-sleep 5 &
-background_pid=$!
-echo "PID of last background command (\$!): $background_pid"
-wait $background_pid
+sleep 5 & echo "PID of last background command (\$!): $!"
 
 # $$ - PID of the current shell
 echo "Process ID of current shell (\$\$): $$"
-
-# $- - current shell options
-echo "Current shell options (\$-): $-"
 
 # $PWD - current working directory
 echo "Current working directory (\$PWD): $PWD"
