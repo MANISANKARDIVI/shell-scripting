@@ -46,3 +46,6 @@ echo "Current working directory (\$PWD): $PWD"
 # $USER - current user
 echo "Current user (\$USER): $USER"
 
+# $HOME - home directory of the current user
+echo "Home directory of current user (\$HOME): $HOME"
+
