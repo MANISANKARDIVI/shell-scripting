@@ -39,3 +39,10 @@ echo "Process ID of current shell (\$\$): $$"
 
 # $- - current shell options
 echo "Current shell options (\$-): $-"
+
+# $PWD - current working directory
+echo "Current working directory (\$PWD): $PWD"
+
+# $USER - current user
+echo "Current user (\$USER): $USER"
+
