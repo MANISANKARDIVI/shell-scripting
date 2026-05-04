@@ -29,7 +29,7 @@ false
 echo "Exit status of the false command (\$?): $?"
 
 # $! - PID of the last process run in background
-sleep 10 &
+sleep 5 &
 background_pid=$!
 echo "PID of last background command (\$!): $background_pid"
 wait $background_pid
