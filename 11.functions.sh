@@ -20,26 +20,26 @@ VALIDATE() {
     fi
 }
 
-dnf list installed mysql
+dnf list installed nginx
 
 if [ $? -ne 0 ]
 then
-    echo "MySQL is not installed, installing now"
-    dnf install mysql-server -y
-    VALIDATE $? "MySQL"
+    echo "Nginx is not installed, installing now"
+    dnf install nginx -y
+    VALIDATE $? "Nginx"
 else
-    echo "MySQL is already installed"
+    echo "Nginx is already installed"
 fi
 
 
-dnf list installed git 
+dnf list installed java 
 
 if [ $? -ne 0 ]
 then 
-    echo  "Git is not installed, installing now"
-    dnf install git -y
-    VALIDATE $? "Git"
+    echo  "Java is not installed, installing now"
+    dnf install java -y
+    VALIDATE $? "Java"
 else
-    echo "Git is nalready installed"
+    echo "Java is already installed"
 fi
 
