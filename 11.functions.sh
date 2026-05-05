@@ -1,8 +1,8 @@
-#!/bin/ env bash
+#!/bin/env bash
 
 USERID=$(id -u)
 
-if [ $USERID -ne 0]
+if [ $USERID -ne 0 ]
 then
     echo "ERROR:: You must be root to run this script"
     exit 1
