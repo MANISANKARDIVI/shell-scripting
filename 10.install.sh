@@ -20,7 +20,7 @@ then
 	then
 		echo "Mysql is installed successfully..."
 	else
-		echo "Error: Failed to install Mysql..."
+		echo "Failed to install Mysql..."
         exit 1
     fi
 		
