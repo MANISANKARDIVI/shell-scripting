@@ -4,7 +4,7 @@
 
 echo -e "\e[31m this is red color"
 
-echo -e "\e[32m this is green color]"
+echo -e "\e[32m this is green color"
 
 echo -e "\e[33m this is yellow color"
 
