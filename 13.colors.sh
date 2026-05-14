@@ -1,10 +1,10 @@
 #!/bin/env bash
 
-R=\e[31m
-G=\e[32m
-Y=\e[33m
-B=\e[34m
-W=\e[37m
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+B="\e[34m"
+W="\e[37m"
 
 USERID=$(id -u)
 
