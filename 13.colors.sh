@@ -10,19 +10,19 @@ USERID=$(id -u)
 
 if [ $USERID -ne 0 ]
 then
-    echo -e "$R ERROR:: You must be root to run this script"
+    echo -e "$R ERROR:: You must be root to run this script$W"
     exit 1
 else 
-    echo -e "$Y INFO:: You are root, you can run this script"
+    echo -e "$Y INFO:: You are root, you can run this script$W"
 fi
 
 VALIDATE() {
     if [ $1 -ne 0 ]
     then
-        echo -e "$R ERROR:: $2 failed to install"
+        echo -e "$R ERROR:: $2 failed to install$W"
         exit 1
     else 
-        echo -e "$G INFO:: $2 installed successfully"
+        echo -e "$G INFO:: $2 installed successfully$W  "
     fi
 }
 
@@ -30,11 +30,11 @@ dnf list installed nginx
 
 if [ $? -ne 0 ]
 then
-    echo -e "$Y INFO:: Nginx is not installed, installing now"
+    echo -e "$Y INFO:: Nginx is not installed, installing now$W"
     dnf install nginx -y
     VALIDATE $? "Nginx"
 else
-    echo -e "$G INFO:: Nginx is already installed"
+    echo -e "$G INFO:: Nginx is already installed$W"
 fi
 
 
@@ -42,10 +42,10 @@ dnf list installed java
 
 if [ $? -ne 0 ]
 then 
-    echo -e "$Y INFO:: Java is not installed, installing now"
+    echo -e "$Y INFO:: Java is not installed, installing now$W"
     dnf install java -y
     VALIDATE $? "Java"
 else
-    echo -e "$G INFO:: Java is already installed"
+    echo -e "$G INFO:: Java is already installed$W"
 fi
 
