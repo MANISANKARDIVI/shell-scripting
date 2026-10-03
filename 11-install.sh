@@ -2,7 +2,8 @@
 
 # Exit status
 # 0 - Success
-# 1 - Error, we can write upto 1-127 numbers for exit status.
+# 1 - Error
+# Exit status range: 0-255
 
 # to find user-id:: $id -u
 # 0 - root user
@@ -19,13 +20,20 @@ else
   echo "You have root privileges to run this script."
 fi
 
-## check mysql is installed or not.
-#if dnf list installed mysql &>/dev/null
-#then
-#  echo "mysql is already installed on this system."
-#else "
-#  echo "mysql is not installed on this system. Installing mysql."
-#  dnf install mysql -y
-#fi
-#
+# check mysql is installed or not.
+if dnf list installed mysql &>/dev/null
+then
+  echo "mysql is already installed on this system."
+  exit 0
+else
+  echo "mysql is not installed on this system. Installing mysql."
+  dnf install mysql
+  if [ "$?" -ne 0 ]
+  then
+    echo "mysql installation failed."
+    exit 1
+  else
+    echo "mysql installation successful."
+  fi
+fi
 
