@@ -7,7 +7,7 @@
 
 # to find user-id:: $id -u
 # 0 - root user
-# 1 & above - non root user
+# 1000 & above - non root user
 
 USERID=$(id -u)
 
@@ -27,7 +27,7 @@ then
   exit 0
 else
   echo "mysql is not installed on this system. Installing mysql."
-  dnf install mysql
+  dnf install mysql -y
   if [ "$?" -ne 0 ]
   then
     echo "mysql installation failed."
@@ -36,4 +36,3 @@ else
     echo "mysql installation successful."
   fi
 fi
-
