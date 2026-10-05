@@ -13,7 +13,7 @@
 #\e[36m → Cyan
 #\e[37m → White
 
-echo -e "\e[35m This is purple text"
+echo -e "\e[35m This is purple text \e[0m"
 # above color add to full line, wat if u want to color only a part of the line, then use below code
 
 echo -e "This is \e[31m red text \e[0m and this is normal text"
