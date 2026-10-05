@@ -36,3 +36,24 @@ else
     echo "mysql installation successful."
   fi
 fi
+
+
+
+# Check root
+#   ↓
+# Not root → exit 1 ❌
+#   ↓
+# Root ✅
+#   ↓
+# Check MySQL
+#   ↓
+# Already installed → exit 0 ✅
+#   ↓
+# Not installed
+#   ↓
+# Install MySQL
+#   ↓
+# Installation failed → exit 1 ❌
+#   ↓
+# Installation successful ✅
+
