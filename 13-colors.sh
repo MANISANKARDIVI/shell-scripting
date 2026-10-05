@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 
 # -e = enable
-# \e[31m = red color
+#\e[*m → color code
 
-echo -e "\e[0;30mBlack text\e[0m"
-echo -e "\e[0;31mRed text\e[0m"
-echo -e "\e[0;32mGreen text\e[0m"
-echo -e "\e[0;33mYellow text\e[0m"
-echo -e "\e[0;34mBlue text\e[0m"
-echo -e "\e[0;35mPurple text\e[0m"
-echo -e "\e[0;36mCyan text\e[0m"
-echo -e "\e[0;37mWhite text\e[0m"
+#\e[30m → Black
+#\e[31m → Red
+#\e[32m → Green
+#\e[33m → Yellow
+#\e[34m → Blue
+#\e[35m → Purple/Magenta
+#\e[36m → Cyan
+#\e[37m → White
+
+echo -e "\e[35m This is purple/magenta text"
