@@ -18,4 +18,4 @@ echo -e "This is \e[31m red text and this is normal text"
 
 echo "This is normal text"
 
-echo -e "This is \e[31m red text \e[0m and this is normal text"
+echo -e "This is \e[36m cyan text \e[0m and this is normal text"
