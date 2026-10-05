@@ -17,3 +17,5 @@ echo -e "This is \e[31m red text and this is normal text"
 # If you add color code you must be sure to reset it back to normal text using \e[0m, otherwise all the text after that will be colored.
 
 echo "This is normal text"
+
+echo -e "This is \e[31m red text \e[0m and this is normal text"
