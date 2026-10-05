@@ -8,8 +8,8 @@
 #\e[32m → Green
 #\e[33m → Yellow
 #\e[34m → Blue
-#\e[35m → Purple/Magenta
+#\e[35m → Purple
 #\e[36m → Cyan
 #\e[37m → White
 
-echo -e "\e[35m This is purple/magenta text"
+echo -e "\e[35m This is purple text"
