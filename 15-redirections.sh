@@ -14,6 +14,8 @@
 # &> = it store both success and error output.
 # &>> = it append both success and error output.
 
+# | tee -a = it store both success and error output and append to file.
+
 
 USERID=$(id -u)
 R="\e[31m"
@@ -26,15 +28,15 @@ SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 
 mkdir -p $LOGS_FOLDER
-echo "This scipt is executed at: $(date)" &>>$LOG_FILE
+echo "This scipt is executed at: $(date)" | tee -a $LOG_FILE
 
 
 if [ "$USERID" -ne 0 ]
 then
-  echo -e "$R user don't have root access $N" &>>$LOG_FILE
+  echo -e "$R user don't have root access $N" | tee -a $LOG_FILE
   exit 1
 else
-  echo -e "$G user have root access $N" &>>$LOG_FILE
+  echo -e "$G user have root access $N" | tee -a $LOG_FILE
 fi
 
 package_installer() {
@@ -43,16 +45,16 @@ package_installer() {
   dnf list installed "$PACKAGE" &>>$LOG_FILE
   if [ $? -eq 0 ]
   then
-    echo -e "$Y $PACKAGE is already installed $N" &>>$LOG_FILE
+    echo -e "$Y $PACKAGE is already installed $N" | tee -a $LOG_FILE
   else
-    echo -e "$Y $PACKAGE is not installed, installing now $N" &>>$LOG_FILE
+    echo -e "$Y $PACKAGE is not installed, installing now $N" | tee -a $LOG_FILE
     dnf install "$PACKAGE" -y &>>$LOG_FILE
     if [ $? -ne 0 ]
     then
-      echo -e "$R Failed to install $PACKAGE $N" &>>$LOG_FILE
+      echo -e "$R Failed to install $PACKAGE $N" | tee -a $LOG_FILE
       exit 1
     else
-      echo -e "$G $PACKAGE installed successfully $N" &>>$LOG_FILE
+      echo -e "$G $PACKAGE installed successfully $N" | tee -a $LOG_FILE
     fi
   fi
 }
