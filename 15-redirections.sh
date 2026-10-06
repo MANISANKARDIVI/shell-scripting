@@ -16,6 +16,14 @@
 
 # | tee -a = it store both success and error output and append to file.
 
+############################################################################
+#| Command                      | Terminal           | Log file          |
+#|------------------------------|--------------------|-------------------|
+#| `&>>"$LOG_FILE"`             | ❌                 | ✅ normal + error |
+#| `| tee -a "$LOG_FILE"`       | ✅ normal          | ✅ normal         |
+#| `2>&1 | tee -a "$LOG_FILE"`  | ✅ normal + error  | ✅ normal + error |
+#| &>/dev/null                  | ❌                 | ❌ normal + error |
+############################################################################
 
 USERID=$(id -u)
 R="\e[31m"
