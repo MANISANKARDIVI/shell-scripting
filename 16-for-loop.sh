@@ -34,7 +34,7 @@ fi
 # Create log folder
 mkdir -p "$LOG_FOLDER"
 
-echo "This script is running at $(date)" | tee -a "$LOG_FILE_NAME"
+echo "This script is running at $(date)" 2>&1 | tee -a "$LOG_FILE_NAME"
 
 
 # Install packages
@@ -44,20 +44,20 @@ do
     # Check whether package is installed
     if dnf list installed "$package" &>/dev/null
     then
-        echo -e "$Y $package is already installed $N" | tee -a "$LOG_FILE_NAME"
+        echo -e "$Y $package is already installed $N" 2>&1 | tee -a "$LOG_FILE_NAME"
 
     else
-        echo -e "$Y $package is not installed. Installing now... $N" | tee -a "$LOG_FILE_NAME"
+        echo -e "$Y $package is not installed. Installing now... $N" 2>&1 | tee -a "$LOG_FILE_NAME"
 
         if dnf install "$package" -y 2>&1 | tee -a "$LOG_FILE_NAME"
         then
-            echo -e "$G $package installed successfully $N" | tee -a "$LOG_FILE_NAME"
+            echo -e "$G $package installed successfully $N" 2>&1 | tee -a "$LOG_FILE_NAME"
         else
-            echo -e "$R Failed to install $package $N" | tee -a "$LOG_FILE_NAME"
+            echo -e "$R Failed to install $package $N" 2>&1 | tee -a "$LOG_FILE_NAME"
             exit 1
         fi
     fi
 
 done
 
-echo "This script is completed at $(date)" | tee -a "$LOG_FILE_NAME"
+echo "This script is completed at $(date)" 2>&1 | tee -a "$LOG_FILE_NAME"
