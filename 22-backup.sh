@@ -1,8 +1,8 @@
 #!/bin/bash
 
 USERID=$(id -u)
-SOURCE_DIR=$1
-DEST_DIR=$2
+SOURCE_DIR=source_dir
+DEST_DIR=destination_dir
 DAYS=${3:-14} # if DAYS are provided that will be considered, otherwise default 14 days
 LOGS_FOLDER="/var/log/shellscript-logs"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
