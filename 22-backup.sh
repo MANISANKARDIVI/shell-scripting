@@ -1,7 +1,7 @@
 #!/bin/bash
 
 USERID=$(id -u)
-SOURCE_DIR=/home/ec2-user/apps-logs
+SOURCE_DIR=/home/ec2-user/apps-logs/
 DEST_DIR=/home/ec2-user/destination_dir
 DAYS=14
 LOGS_FOLDER="/var/log/shellscript-logs"
