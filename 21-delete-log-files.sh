@@ -17,13 +17,17 @@ LOG_NAME="$LOGS_FOLDER/$SCRIPT_NAME.log"
 SOURCE_DIR="/home/ec2-user/app-logs"
 
 # Check root access
-if [ "$USERID" -ne 0 ]
-then
-    echo -e "$R User doesn't have root access $N"
+user_check() {
+  if [ "$USERID" -ne 0 ]
+  then
+    echo -e "$R User doesn't have root access $N" | tee -a "$LOG_NAME"
     exit 1
-else
-    echo -e "$G User has root access $N"
-fi
+  else
+    echo -e "$G User has root access $N" | tee -a "$LOG_NAME"
+  fi
+}
+
+user_check  # calling user_check function
 
 # Create log folder
 mkdir -p "$LOGS_FOLDER"
