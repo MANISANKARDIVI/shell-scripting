@@ -1,9 +1,11 @@
 #!/bin/bash
 
+set -euo pipefail
+
 USERID=$(id -u)
 SOURCE_DIR=/home/ec2-user/app-logs/
 DEST_DIR=/home/ec2-user/destination_dir
-DAYS=10
+DAYS=14
 LOGS_FOLDER="/var/log/shellscript-logs"
 LOG_FILE="$LOGS_FOLDER/backup.log"
 TIMESTAMP=$(date +%F-%H-%M-%S)
