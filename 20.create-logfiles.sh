@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# This is sample script ok
+
 set -euo pipefail
 
 LOG_DIR="/home/ec2-user/app-logs"
