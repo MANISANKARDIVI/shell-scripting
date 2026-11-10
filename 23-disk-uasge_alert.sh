@@ -9,7 +9,7 @@ set -euo pipefail
 
 TO_ADDRESS="manisankar4893@gmail.com"
 THRESHOLD=80
-HOST=$(hostname)
+HOST=$(hostname -i)
 
 # 1. Check disk usage
 check_disk() {
@@ -33,33 +33,6 @@ then
     exit 0
 fi
 
-# 2. Create HTML email body
-create_html() {
-    cat <<EOF
-<html>
-<body>
-<h2 style="color:red;">Disk Usage Alert</h2>
-<p>Server: $HOST</p>
-<p>Time: $(date)</p>
-<p>Disk usage reached ${THRESHOLD}% or more.</p>
-
-<table border="1" cellpadding="8">
-<tr>
-<th>Filesystem</th>
-<th>Size</th>
-<th>Used</th>
-<th>Available</th>
-<th>Mount Point</th>
-</tr>
-$ALERT_ROWS
-</table>
-
-</body>
-</html>
-EOF
-}
-
-EMAIL_BODY=$(create_html)
 
 # 3. Send email
 {
